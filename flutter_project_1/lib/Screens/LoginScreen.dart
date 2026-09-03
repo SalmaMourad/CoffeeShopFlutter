@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_project_1/Apis/auth_service.dart';
+import 'package:flutter_project_1/Screens/SignUpPage.dart';
 import 'package:flutter_project_1/Widgets/AuthTextField.dart';
 
 const Color _cream = Color(0xFFFFF9F7);
@@ -7,44 +8,30 @@ const Color _brown = Color(0xFF5D4037);
 const Color _darkBrown = Color(0xFF3E2723);
 const Color _softBrown = Color(0xFF795548);
 
-class SignUpPage extends StatefulWidget {
-  const SignUpPage({super.key});
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
 
   @override
-  State<SignUpPage> createState() => _SignUpPageState();
+  State<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _SignUpPageState extends State<SignUpPage> {
+class _LoginScreenState extends State<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
-  final _nameController = TextEditingController();
   final _emailController = TextEditingController();
-  final _phoneController = TextEditingController();
   final _passwordController = TextEditingController();
-  final _confirmController = TextEditingController();
 
   @override
   void dispose() {
-    _nameController.dispose();
     _emailController.dispose();
-    _phoneController.dispose();
     _passwordController.dispose();
-    _confirmController.dispose();
     super.dispose();
   }
 
-  Future<void> _signUp() async {
+  Future<void> _login() async {
     if (!_formKey.currentState!.validate()) return;
     await AuthService.login();
     if (!mounted) return;
     Navigator.of(context).pushReplacementNamed('/MainScreen');
-  }
-
-  void _goToLogin() {
-    if (Navigator.of(context).canPop()) {
-      Navigator.of(context).pop();
-    } else {
-      Navigator.of(context).pushReplacementNamed('/LoginScreen');
-    }
   }
 
   @override
@@ -60,8 +47,21 @@ class _SignUpPageState extends State<SignUpPage> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 const SizedBox(height: 24),
+                Container(
+                  alignment: Alignment.center,
+                  padding: const EdgeInsets.all(20),
+                  decoration: const BoxDecoration(
+                    color: Color(0xFFFADFD5),
+                    shape: BoxShape.circle,
+                  ),
+                  child: const Text(
+                    '☕',
+                    style: TextStyle(fontSize: 40),
+                  ),
+                ),
+                const SizedBox(height: 24),
                 const Text(
-                  'Create Account',
+                  'Welcome Back',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 26,
@@ -71,7 +71,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 ),
                 const SizedBox(height: 6),
                 const Text(
-                  'Join us and order your favorite coffee ☕',
+                  'Sign in to continue',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 14,
@@ -79,12 +79,6 @@ class _SignUpPageState extends State<SignUpPage> {
                   ),
                 ),
                 const SizedBox(height: 32),
-                AuthTextField(
-                  label: 'Name',
-                  hint: 'Enter your name',
-                  icon: Icons.person_outline,
-                  controller: _nameController,
-                ),
                 AuthTextField(
                   label: 'Email',
                   hint: 'Enter your email',
@@ -101,47 +95,32 @@ class _SignUpPageState extends State<SignUpPage> {
                   },
                 ),
                 AuthTextField(
-                  label: 'Phone',
-                  hint: 'Enter your number',
-                  icon: Icons.phone_outlined,
-                  controller: _phoneController,
-                  validator: (value) {
-                    final v = value?.trim() ?? '';
-                    if (v.isEmpty) return 'Please enter your phone number';
-                    return null;
-                  },
-                ),
-                AuthTextField(
                   label: 'Password',
                   hint: 'Enter your password',
                   icon: Icons.lock_outline,
                   isPassword: true,
                   controller: _passwordController,
-                  validator: (value) {
-                    final v = value ?? '';
-                    if (v.isEmpty) return 'Please enter a password';
-                    if (v.length < 6) {
-                      return 'Password must be at least 6 characters';
-                    }
-                    return null;
-                  },
                 ),
-                AuthTextField(
-                  label: 'Confirm Password',
-                  hint: 'Confirm your password',
-                  icon: Icons.lock_outline,
-                  isPassword: true,
-                  controller: _confirmController,
-                  validator: (value) {
-                    if (value != _passwordController.text) {
-                      return 'Passwords do not match';
-                    }
-                    return null;
-                  },
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: TextButton(
+                    onPressed: () {},
+                    style: TextButton.styleFrom(
+                      padding: const EdgeInsets.symmetric(vertical: 4),
+                      foregroundColor: _softBrown,
+                    ),
+                    child: const Text(
+                      'Forgot Password?',
+                      style: TextStyle(
+                        fontSize: 13,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ),
                 ),
-                const SizedBox(height: 16),
+                const SizedBox(height: 8),
                 ElevatedButton(
-                  onPressed: _signUp,
+                  onPressed: _login,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: _brown,
                     foregroundColor: Colors.white,
@@ -154,7 +133,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  child: const Text('Sign Up'),
+                  child: const Text('Login'),
                 ),
                 const SizedBox(height: 28),
                 const Row(
@@ -163,7 +142,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: 12),
                       child: Text(
-                        'Or Sign Up with',
+                        'Or continue with',
                         style: TextStyle(fontSize: 13, color: _softBrown),
                       ),
                     ),
@@ -174,35 +153,34 @@ class _SignUpPageState extends State<SignUpPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    IconButton(
-                      onPressed: () {},
-                      icon: const Icon(Icons.facebook, color: Colors.brown),
+                    _SocialButton(icon: Icons.facebook, color: Colors.brown),
+                    const SizedBox(width: 16),
+                    _SocialButton(
+                      icon: Icons.alternate_email,
+                      color: Colors.brown.shade600,
                     ),
-                    IconButton(
-                      onPressed: () {},
-                      icon: Icon(
-                        Icons.alternate_email,
-                        color: Colors.brown.shade600,
-                      ),
-                    ),
-                    IconButton(
-                      onPressed: () {},
-                      icon: const Icon(Icons.apple, color: Colors.brown),
-                    ),
+                    const SizedBox(width: 16),
+                    _SocialButton(icon: Icons.apple, color: Colors.brown),
                   ],
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: 28),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const Text(
-                      'Already have an account? ',
+                      "Don't have an account? ",
                       style: TextStyle(fontSize: 14, color: _softBrown),
                     ),
                     GestureDetector(
-                      onTap: _goToLogin,
+                      onTap: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (_) => const SignUpPage(),
+                          ),
+                        );
+                      },
                       child: const Text(
-                        'Login',
+                        'Sign Up',
                         style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.bold,
@@ -215,6 +193,30 @@ class _SignUpPageState extends State<SignUpPage> {
               ],
             ),
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class _SocialButton extends StatelessWidget {
+  final IconData icon;
+  final Color color;
+
+  const _SocialButton({required this.icon, required this.color});
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      color: Colors.white,
+      shape: const CircleBorder(),
+      elevation: 1,
+      child: InkWell(
+        customBorder: const CircleBorder(),
+        onTap: () {},
+        child: Padding(
+          padding: const EdgeInsets.all(12),
+          child: Icon(icon, color: color, size: 22),
         ),
       ),
     );
