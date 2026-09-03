@@ -20,26 +20,8 @@
             }
         ],
         "products": [
-            {
-                "id": 100,
-                "name": "Cappuccino",
-                "description": "A rich espresso blended with steamed milk and topped with a thick, creamy foam for a perfectly balanced and smooth coffee experience.",
-                "price": 65,
-                "category_id": 2,
-                "image": "images/hotlatte.png",
-                "rating": 4.7,
-                "is_favorite": true
-            },
-            {
-                "id": 101,
-                "name": "Hot Chocolate",
-                "description": "A warm and comforting drink made with rich melted chocolate and creamy milk, topped with a smooth texture that melts in every sip.",
-                "price": 55,
-                "category_id": 1,
-                "image": "images/hotCoco.png",
-                "rating": 4.8,
-                "is_favorite": false
-            },
+           
+            
             {
                 "id": 102,
                 "name": "Iced Latte",
@@ -61,6 +43,27 @@
                 "is_favorite": true
             },
             {
+                "id": 101,
+                "name": "Hot Chocolate",
+                "description": "A warm and comforting drink made with rich melted chocolate and creamy milk, topped with a smooth texture that melts in every sip.",
+                "price": 55,
+                "category_id": 1,
+                "image": "images/hotCoco.png",
+                "rating": 4.8,
+                "is_favorite": false
+            },
+             {
+                "id": 100,
+                "name": "Cappuccino",
+                "description": "A rich espresso blended with steamed milk and topped with a thick, creamy foam for a perfectly balanced and smooth coffee experience.",
+                "price": 65,
+                "category_id": 2,
+                "image": "images/hotlatte.png",
+                "rating": 4.7,
+                "is_favorite": true
+            },
+            
+            {
                 "id": 104,
                 "name": "Iced Lemon",
                 "description": "A zesty and refreshing iced lemon drink mixed with fresh mint leaves and sparkling soda, delivering a cool and tangy sensation.",
@@ -71,12 +74,12 @@
                 "is_favorite": true
             },
             {
-                "id": 105,
-                "name": "Milkshake",
-                "description": "A creamy and chilled milkshake blended with rich coffee and ice, creating a smooth and indulgent drink with a sweet finish.",
+                "id": 107,
+                "name": "Tea",
+                "description": "A classic hot tea brewed from premium tea leaves, delivering a soothing and aromatic experience perfect for relaxation.",
                 "price": 65,
                 "category_id": 2,
-                "image": "images/milkshake.png",
+                "image": "images/tea.png",
                 "rating": 4.7,
                 "is_favorite": true
             },
@@ -91,6 +94,17 @@
                 "is_favorite": true
             },
             {
+                "id": 105,
+                "name": "Milkshake",
+                "description": "A creamy and chilled milkshake blended with rich coffee and ice, creating a smooth and indulgent drink with a sweet finish.",
+                "price": 65,
+                "category_id": 2,
+                "image": "images/milkshake.png",
+                "rating": 4.7,
+                "is_favorite": true
+            },
+            
+            {
                 "id": 108,
                 "name": "Bobba Tea",
                 "description": "A fun and refreshing bubble tea made with flavored tea and chewy tapioca pearls, offering a unique texture and sweet taste in every sip.",
@@ -99,17 +113,8 @@
                 "image": "images/bobatea.png",
                 "rating": 4.7,
                 "is_favorite": true
-            },
-            {
-                "id": 107,
-                "name": "Tea",
-                "description": "A classic hot tea brewed from premium tea leaves, delivering a soothing and aromatic experience perfect for relaxation.",
-                "price": 65,
-                "category_id": 2,
-                "image": "images/tea.png",
-                "rating": 4.7,
-                "is_favorite": true
             }
+            
         ]
     }
 }

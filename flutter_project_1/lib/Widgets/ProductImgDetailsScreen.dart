@@ -20,7 +20,7 @@ class ProductImgDetailsScreen extends StatelessWidget {
                 bottomRight: Radius.circular(20),
               ),
             ),
-            child: Image.network(product.image, height: 400),
+            child: Image.asset(product.image, height: 400),
           ),
         ),
       ],

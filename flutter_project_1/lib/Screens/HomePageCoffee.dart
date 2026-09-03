@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_project_1/Widgets/OffersCard.dart';
 import 'package:flutter_project_1/Apis/apiService.dart';
-import 'package:flutter_project_1/Screens/coffee_search.dart';
+import 'package:flutter_project_1/Screens/SearchScreen.dart';
 import 'package:flutter_project_1/Widgets/CoffeeCard.dart';
 import '../Model/model.dart';
 
@@ -59,9 +59,11 @@ class _CoffeeScreenState extends State<CoffeeScreen> {
               IconButton(
                 icon: const Icon(Icons.search),
                 onPressed: () {
-                  showSearch(
-                    context: context,
-                    delegate: CoffeeSearchDelegate(products: coffee.products),
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (_) =>
+                          SearchScreen(products: coffee.products),
+                    ),
                   );
                 },
               ),
@@ -91,21 +93,21 @@ class _CoffeeScreenState extends State<CoffeeScreen> {
                   child: Row(
                     children: const [
                       OffersCard(
-                        offerText: 'GET YOUR COFFEE AT 30% OFF TODAY',
-                        imgPath: 'images/hotCoco.png',
+                        offerText: 'GET YOUR COFFEE AT 10% OFF TODAY',
+                        imgPath: 'images/hotlatte.png',
                       ),
                       OffersCard(
                         offerText: 'HOT PRICE FOR MATCHA 70% OFF',
                         imgPath: 'images/matcha3.png',
                       ),
                       OffersCard(
-                        offerText: 'BUY 2 GET 1 FOR FREE',
+                        offerText: 'BUY 2 ESPERSSO AND GET 1 FOR FREE',
                         imgPath: 'images/coffee3.png',
                       ),
-                      OffersCard(
-                        offerText: 'FREE DELIVERY TODAY',
-                        imgPath: 'images/delivery.png',
-                      ),
+                      // OffersCard(
+                      //   offerText: 'FREE DELIVERY TODAY',
+                      //   imgPath: 'images/delivery.png',
+                      // ),
                     ],
                   ),
                 ),
