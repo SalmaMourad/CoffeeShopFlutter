@@ -1,0 +1,115 @@
+{
+    "coffee": {
+        "shop": {
+            "name": "Salma's Cafe",
+            "location": "Cairo, Egypt",
+            "rating": 4.9
+        },
+        "categories": [
+            {
+                "id": 1,
+                "name": "Hot Drinks"
+            },
+            {
+                "id": 2,
+                "name": "Cold Drinks"
+            },
+            {
+                "id": 3,
+                "name": "Desserts"
+            }
+        ],
+        "products": [
+            {
+                "id": 100,
+                "name": "Cappuccino",
+                "description": "A rich espresso blended with steamed milk and topped with a thick, creamy foam for a perfectly balanced and smooth coffee experience.",
+                "price": 65,
+                "category_id": 2,
+                "image": "images/hotlatte.png",
+                "rating": 4.7,
+                "is_favorite": true
+            },
+            {
+                "id": 101,
+                "name": "Hot Chocolate",
+                "description": "A warm and comforting drink made with rich melted chocolate and creamy milk, topped with a smooth texture that melts in every sip.",
+                "price": 55,
+                "category_id": 1,
+                "image": "images/hotCoco.png",
+                "rating": 4.8,
+                "is_favorite": false
+            },
+            {
+                "id": 102,
+                "name": "Iced Latte",
+                "description": "A refreshing cold latte made with bold espresso, chilled milk, and ice cubes, offering a smooth and energizing taste perfect for hot days.",
+                "price": 80,
+                "category_id": 2,
+                "image": "images/icelatte.png",
+                "rating": 4.7,
+                "is_favorite": true
+            },
+            {
+                "id": 103,
+                "name": "Iced Cocunut Matcha",
+                "description": "A unique blend of creamy coconut milk and premium matcha served over ice, lightly sweetened with honey for a refreshing and earthy flavor.",
+                "price": 90,
+                "category_id": 2,
+                "image": "images/matcha3.png",
+                "rating": 4.7,
+                "is_favorite": true
+            },
+            {
+                "id": 104,
+                "name": "Iced Lemon",
+                "description": "A zesty and refreshing iced lemon drink mixed with fresh mint leaves and sparkling soda, delivering a cool and tangy sensation.",
+                "price": 50,
+                "category_id": 2,
+                "image": "images/hotlemon.png",
+                "rating": 4.5,
+                "is_favorite": true
+            },
+            {
+                "id": 105,
+                "name": "Milkshake",
+                "description": "A creamy and chilled milkshake blended with rich coffee and ice, creating a smooth and indulgent drink with a sweet finish.",
+                "price": 65,
+                "category_id": 2,
+                "image": "images/milkshake.png",
+                "rating": 4.7,
+                "is_favorite": true
+            },
+            {
+                "id": 106,
+                "name": "Strawberry Milkshake",
+                "description": "A deliciously sweet and creamy strawberry milkshake made with fresh strawberries and cold milk, blended to perfection for a fruity delight.",
+                "price": 95,
+                "category_id": 2,
+                "image": "images/strawshake.png",
+                "rating": 4.7,
+                "is_favorite": true
+            },
+            {
+                "id": 108,
+                "name": "Bobba Tea",
+                "description": "A fun and refreshing bubble tea made with flavored tea and chewy tapioca pearls, offering a unique texture and sweet taste in every sip.",
+                "price": 65,
+                "category_id": 2,
+                "image": "images/bobatea.png",
+                "rating": 4.7,
+                "is_favorite": true
+            },
+            {
+                "id": 107,
+                "name": "Tea",
+                "description": "A classic hot tea brewed from premium tea leaves, delivering a soothing and aromatic experience perfect for relaxation.",
+                "price": 65,
+                "category_id": 2,
+                "image": "images/tea.png",
+                "rating": 4.7,
+                "is_favorite": true
+            }
+        ]
+    }
+}
